@@ -48,20 +48,10 @@ parser.on('data', (data) => {
     }
 });
 
-//conexion de cliente
 io.on('connect', (socket) => {
-    //HOLA
+
     console.log('Usuario conectado');
 
-    /*socket.on('send-element', (element) => {
-        io.emit('element-received', element)
-    })
-
-    socket.on('send-cursor', (element) => {
-        io.emit('cursor-received', element);
-    })*/
-
-    //desconexion
     socket.on('disconnect', () => {
         console.log('Usuario conectado');
     })

@@ -5,8 +5,8 @@ let points = 0;
 let numberOfDucks = 8;
 let ducks = [];
 let duckSprite1, duckSprite2, duckHuntBG, crosshair, shoot, duckFall
-let ardMouseX = 1600/2;
-let ardMouseY = 1200/2;
+let ardMouseX = 1920/2;
+let ardMouseY = 1080/2;
 
 function preload() {
   duckSprite1 = loadImage('./assets/duck1.png');
@@ -19,7 +19,7 @@ function preload() {
 
 
 function setup() {
-  createCanvas(1600, 1200);
+  createCanvas(1920, 1080);
   x = 0;
   y = 300;
 
@@ -36,11 +36,9 @@ function setup() {
 }
 
 socket.on('mensaje',(element)=>{
-  // Dibujar el elemento recibido en el otro cliente.
-  //console.log ("ardInput:", element)  
 
-  ardMouseX = 1.56403 * parseInt(element.x)
-  ardMouseY = 1.17302 * parseInt(element.y)
+  ardMouseX = 3.918367346938776 * parseInt(element.x)
+  ardMouseY = 2.204081632653061 * parseInt(element.y)
 
   if (parseInt(element.f) == 1) {
     mousePressed()
@@ -49,11 +47,9 @@ socket.on('mensaje',(element)=>{
 
 
 function draw() {
-  //Backgroun
   background(duckHuntBG);
   noStroke();
 
-  //Points
   textSize(32);
   fill(255);
   text("Points: " + points, 25,50);
